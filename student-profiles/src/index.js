@@ -1,8 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import App from './App'
 
-function HelloWorld() {
-	return <div>hello world</div>
-}
 
-ReactDOM.render(<HelloWorld />, document.querySelector('#root'))
+ReactDOM.render(<App />, document.getElementById('root'))

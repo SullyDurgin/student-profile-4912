@@ -6,10 +6,12 @@ export default class StudentList extends React.Component {
     loading: true
   }
 
-
   //check if component has rendered at least once
-  componentDidMount() {
-
+  async componentDidMount() {
+    const url = "https://api.hatchways.io/assessment/students";
+    const response = await fetch(url);
+    const data = await response.json();
+    console.log(data);
   }
 
   render() {

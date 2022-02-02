@@ -11,12 +11,17 @@ export default class StudentList extends React.Component {
     const url = "https://api.hatchways.io/assessment/students";
     const response = await fetch(url);
     const data = await response.json();
-    console.log(data);
+    this.setState({student: data.results[0] })
+    console.log(data.results[0]);
   }
 
   render() {
     return <div>
-      {this.state.loading ? <div>loading...</div> : <div>student..</div>}
+      {this.state.loading || !this.state.student ? (
+       <div>loading...</div>
+       ) : (
+       <div>student info</div>
+       )}
     </div>
   }
 }

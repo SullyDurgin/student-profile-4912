@@ -23,6 +23,7 @@ export default class getStudentList extends React.Component {
       return <div>List Not Found</div>;
     }
 
+    
 
     return (
       <div>
@@ -30,10 +31,13 @@ export default class getStudentList extends React.Component {
           <div key={person.firstName + person.lastName}>
             <img src={person.pic} />
             <div>{person.firstName + " " + person.lastName}</div>
-             <div>{"email: " + person.email}</div>
-            <div>{"city: " + person.city}</div>
+             <div>{"Email: " + person.email}</div>
             <div>{"company: " + person.company}</div>
-            <div>{"ID# " + person.id}</div>
+            <div>{"Skill: " + person.skill}</div>
+            <div>Average:{" "}
+            {person.grades.reduce((a, b) => Number(a) + Number(b)) /
+              person.grades.length}{" "}
+            %</div>
           </div>
         ))}
       </div>

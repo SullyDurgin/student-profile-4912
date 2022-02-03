@@ -27,11 +27,13 @@ export default class getStudentList extends React.Component {
     return (
       <div>
         {this.state.people.map(person => (
-          <div key={person.firstName}>
-            <div>{person.city}</div>
-            <div>{person.company}</div>
-            <div>{person.email}</div>
-            <div>{person.id}</div>
+          <div key={person.firstName + person.lastName}>
+            <img src={person.pic} />
+            <div>{person.firstName + " " + person.lastName}</div>
+             <div>{"email: " + person.email}</div>
+            <div>{"city: " + person.city}</div>
+            <div>{"company: " + person.company}</div>
+            <div>{"ID# " + person.id}</div>
           </div>
         ))}
       </div>

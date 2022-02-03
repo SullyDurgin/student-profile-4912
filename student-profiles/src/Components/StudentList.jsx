@@ -14,6 +14,8 @@ export default class getStudentList extends React.Component {
     this.setState({ people: data.students, loading: false });
   }
 
+
+
   render() {
     if (this.state.loading) {
       return <div>loading...</div>;
@@ -26,7 +28,10 @@ export default class getStudentList extends React.Component {
     
 
     return (
+      
       <div>
+        <div>
+        </div>
         {this.state.people.map(person => (
           <div className="studentCard" key={person.firstName + person.lastName}>
             <img src={person.pic} />

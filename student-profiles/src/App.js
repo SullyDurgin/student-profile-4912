@@ -1,19 +1,15 @@
-import React, { Component } from 'react'
+import { useState } from 'react'
 import StudentList from './Components/StudentList'
 import './styles.css'
 
-class App extends Component {
-	state = {
-		visible: true,
-	}
+export default function App() {
+	const [query, setQuery] = useState('')
 
-	render() {
-		return (
-			<div className='App'>
-				<StudentList />
-			</div>
-		)
-	}
+	return (
+		<div className='App'>
+			<label>Search</label>
+			<input type='text' onChange={(e) => setQuery(e.target.value)} />
+			<StudentList />
+		</div>
+	)
 }
-
-export default App

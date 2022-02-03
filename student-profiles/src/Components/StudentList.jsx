@@ -1,5 +1,5 @@
-
 import React from "react";
+import "../styles.css"
 
 export default class getStudentList extends React.Component {
   state = {
@@ -28,9 +28,11 @@ export default class getStudentList extends React.Component {
     return (
       <div>
         {this.state.people.map(person => (
-          <div key={person.firstName + person.lastName}>
+          <div className="studentCard" key={person.firstName + person.lastName}>
             <img src={person.pic} />
-            <div>{person.firstName + " " + person.lastName}</div>
+            <div className="studentInfo">
+            <div className="studentName">{person.firstName + " " + person.lastName}</div>
+            <div className="moreInfo">
              <div>{"Email: " + person.email}</div>
             <div>{"company: " + person.company}</div>
             <div>{"Skill: " + person.skill}</div>
@@ -38,6 +40,8 @@ export default class getStudentList extends React.Component {
             {person.grades.reduce((a, b) => Number(a) + Number(b)) /
               person.grades.length}{" "}
             %</div>
+            </div>
+          </div>
           </div>
         ))}
       </div>

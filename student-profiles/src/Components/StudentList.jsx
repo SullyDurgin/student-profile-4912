@@ -31,7 +31,7 @@ export default class getStudentList extends React.Component {
           <div className="studentCard" key={person.firstName + person.lastName}>
             <img src={person.pic} />
             <div className="studentInfo">
-            <div className="studentName">{person.firstName + " " + person.lastName}</div>
+            <div className="studentName" style={{ textTransform: 'uppercase'}}>{person.firstName + " " + person.lastName}</div>
             <div className="moreInfo">
              <div>{"Email: " + person.email}</div>
             <div>{"company: " + person.company}</div>

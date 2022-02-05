@@ -8,7 +8,7 @@ function App() {
 	const [input, setInput] = useState('')
 	const [output, setOutput] = useState([])
 	const [data, setData] = useState([])
-  const [expand, setExpand] = useState(true)
+	const [expand, setExpand] = useState(true)
 
 	useEffect(() => {
 		async function getContent() {
@@ -89,6 +89,14 @@ function App() {
 											  ))
 											: ''}
 									</ul>
+                  <div className='tags-input'>
+                    <ul>
+                      <li>
+                        <span>Tag1</span>
+                      </li>
+                      <li>Tag2</li>
+                    </ul>
+                  </div>
 								</div>
 							</div>
 						</div>

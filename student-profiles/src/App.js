@@ -1,14 +1,12 @@
-import { useState } from 'react'
-import StudentList from './Components/StudentList'
+import React from 'react'
+import StudentList from './Components/SearchBar'
 import './styles.css'
 
+
 export default function App() {
-	const [query, setQuery] = useState('')
 
 	return (
 		<div className='App'>
-			<label>Search</label>
-			<input type='text' onChange={(e) => setQuery(e.target.value)} />
 			<StudentList />
 		</div>
 	)

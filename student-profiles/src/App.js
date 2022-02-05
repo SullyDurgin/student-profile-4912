@@ -16,7 +16,6 @@ function App() {
 			)
 			setContent(res.data.students)
 			setLoading(false)
-			console.log(content)
 		}
 		getContent()
 	}, [])

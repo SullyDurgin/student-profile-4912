@@ -12,7 +12,8 @@ function App() {
       const res = await Axios.get(
 				'https://api.hatchways.io/assessment/students'
 			)
-      console.log(res.data.students)
+      setContent(res.data.students)
+      console.log(content)
       setLoading(false)
     }
     getStudents()
@@ -20,7 +21,33 @@ function App() {
 
 	return (
 		<div className='App'>
-      {loading?<h1>Loading...</h1>:<h1>Data fetched</h1>}
+			{loading ? (
+				<h1>Loading...</h1>
+			) : (
+				content.map((item) => (
+					<div className='studentCard' key={item.firstName + item.lastName}>
+						<img src={item.pic} />
+						<div className='studentInfo'>
+							<div
+								className='studentName'
+								style={{ textTransform: 'uppercase' }}>
+								{item.firstName + ' ' + item.lastName}
+							</div>
+							<div className='moreInfo'>
+								<div>{'Email: ' + item.email}</div>
+								<div>{'Company: ' + item.company}</div>
+								<div>{'Skill: ' + item.skill}</div>
+								<div>
+									Average:{' '}
+									{item.grades.reduce((a, b) => Number(a) + Number(b)) /
+										item.grades.length}{' '}
+									%
+								</div>
+							</div>
+						</div>
+					</div>
+				))
+			)}
 		</div>
 	)
 }

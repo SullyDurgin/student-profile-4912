@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import TagsInput from './Components/TagsInput.jsx'
 import './styles.css'
 import Axios from 'axios'
 
@@ -42,8 +43,6 @@ function App() {
 			}
 		})
 	}, [nameInput])
-
-
 
 
 
@@ -96,14 +95,7 @@ function App() {
 											  ))
 											: ''}
 									</ul>
-                  <div className='tags-input'>
-                    <ul>
-                      <li>
-                        <span>Tag1</span>
-                      </li>
-                      <li>Tag2</li>
-                    </ul>
-                  </div>
+									<TagsInput />
 								</div>
 							</div>
 						</div>
@@ -119,6 +111,8 @@ function App() {
 			</div>
 		</div>
 	)
+
+  
 }
 
 export default App

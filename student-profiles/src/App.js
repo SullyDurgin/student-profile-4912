@@ -71,17 +71,18 @@ function App() {
 								<div>
 									<ul>
 										{!expand
-											? item.grades.map((grade, index) => (
-													<li key={grade}>
+											? item.grades.map((test, index) => (
+													<li key={index}>
 														{'Test ' +
-															(item.grades.indexOf(item) + 1).toString() +
+															(item.grades.indexOf(test) + 1).toString() +
 															': ' +
-															item.toString()}
+															test.toString()}
 														%
 													</li>
 											  ))
 											: ''}
 									</ul>
+                  
 								</div>
 								<button
 									className='toggleButton'

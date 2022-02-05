@@ -48,6 +48,13 @@ function App() {
 					placeholder='Search by name'
 				/>
 			</div>
+			<div className='input'>
+				<input
+					onChange={(e) => setInput(e.target.value)}
+					placeholder='Search by tag'
+				/>
+			</div>
+
 			<div>
 				{output.map((item) => (
 					<div className='studentCard' key={item.firstName + item.lastName}>

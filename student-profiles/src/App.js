@@ -5,6 +5,8 @@ import Axios from 'axios'
 function App() {
   const[loading, setLoading] = useState(true)
   const[content, setContent] = useState()
+  const[input, setInput] = useState('')
+  const[output, setOutput] = useState([])
 
 
   useEffect(() => {
@@ -19,35 +21,47 @@ function App() {
     getStudents()
   }, [])
 
+
+  useEffect(() => {
+    useEffect(() => {
+      
+    }
+  , [input])
+
 	return (
 		<div className='App'>
-			{loading ? (
-				<h1>Loading...</h1>
-			) : (
-				content.map((item) => (
-					<div className='studentCard' key={item.firstName + item.lastName}>
-						<img src={item.pic} />
-						<div className='studentInfo'>
-							<div
-								className='studentName'
-								style={{ textTransform: 'uppercase' }}>
-								{item.firstName + ' ' + item.lastName}
-							</div>
-							<div className='moreInfo'>
-								<div>{'Email: ' + item.email}</div>
-								<div>{'Company: ' + item.company}</div>
-								<div>{'Skill: ' + item.skill}</div>
-								<div>
-									Average:{' '}
-									{item.grades.reduce((a, b) => Number(a) + Number(b)) /
-										item.grades.length}{' '}
-									%
+			<div className='input'>
+				<input type='text' placeholder='Search...' />
+			</div>
+			<div className='output'>
+				{loading ? (
+					<h1>Loading...</h1>
+				) : (
+					content.map((item) => (
+						<div className='studentCard' key={item.firstName + item.lastName}>
+							<img src={item.pic} />
+							<div className='studentInfo'>
+								<div
+									className='studentName'
+									style={{ textTransform: 'uppercase' }}>
+									{item.firstName + ' ' + item.lastName}
+								</div>
+								<div className='moreInfo'>
+									<div>{'Email: ' + item.email}</div>
+									<div>{'Company: ' + item.company}</div>
+									<div>{'Skill: ' + item.skill}</div>
+									<div>
+										Average:{' '}
+										{item.grades.reduce((a, b) => Number(a) + Number(b)) /
+											item.grades.length}{' '}
+										%
+									</div>
 								</div>
 							</div>
 						</div>
-					</div>
-				))
-			)}
+					))
+				)}
+			</div>
 		</div>
 	)
 }

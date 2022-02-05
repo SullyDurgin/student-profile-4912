@@ -2,13 +2,16 @@ import React, { useState, useEffect } from 'react'
 import './styles.css'
 import Axios from 'axios'
 
+
 function App() {
 	const [loading, setLoading] = useState(true)
 	const [content, setContent] = useState()
-	const [input, setInput] = useState('')
+	const [nameInput, setNameInput] = useState('')
+  const [tagInput, setTagInput] = useState('')
 	const [output, setOutput] = useState([])
 	const [data, setData] = useState([])
 	const [expand, setExpand] = useState(true)
+
 
 	useEffect(() => {
 		async function getContent() {
@@ -34,23 +37,27 @@ function App() {
 	useEffect(() => {
 		setOutput([])
 		data.filter((val) => {
-			if (val.firstName.toLowerCase().includes(input.toLowerCase())) {
+			if (val.firstName.toLowerCase().includes(nameInput.toLowerCase())) {
 				setOutput((output) => [...output, val])
 			}
 		})
-	}, [input])
+	}, [nameInput])
+
+
+
+
 
 	return (
 		<div className='App'>
 			<div className='input'>
 				<input
-					onChange={(e) => setInput(e.target.value)}
+					onChange={(e) => setNameInput(e.target.value)}
 					placeholder='Search by name'
 				/>
 			</div>
 			<div className='input'>
 				<input
-					onChange={(e) => setInput(e.target.value)}
+					onChange={(e) => setTagInput(e.target.value)}
 					placeholder='Search by tag'
 				/>
 			</div>

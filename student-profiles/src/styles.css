@@ -2,7 +2,9 @@
 
 .App {
   font-family: 'Raleway', sans-serif;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 input {
@@ -16,9 +18,18 @@ input {
   border-bottom: solid lightgrey 1px;
 }
 
+button {
+  font-size: 50px;
+  color: grey;
+  border: none;
+  background: none;
+  float: right;
+}
+
+
 .studentCard {
   display: flex;
-  flex-direction: row;
+  justify-content: space-between;
   border-bottom: solid 1px lightgrey;
 }
 
@@ -31,23 +42,22 @@ img {
 }
 
 .studentName {
+  display: flex;
+  justify-content: flex-start;
   font-size: 40px;
   font-weight:bold;
+
 }
 
 .studentInfo {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  margin: 10px;
-
+  width: 100%;
+  margin: 20px;
 }
 
 .moreInfo {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  margin: 10px 10px 0px 10px;
+  margin: 10px 10px 0px 15px;
   line-height: 25px;
   padding-left: 10px;
 }

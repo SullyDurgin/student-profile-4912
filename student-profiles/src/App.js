@@ -82,14 +82,15 @@ function App() {
 											  ))
 											: ''}
 									</ul>
-                  
 								</div>
-								<button
-									className='toggleButton'
-									onClick={() => setExpand(!expand)}>
-									{expand ? '+' : '-'}
-								</button>
 							</div>
+						</div>
+						<div className='buttonBox'>
+							<button
+								className='toggleButton'
+								onClick={() => setExpand(!expand)}>
+								{expand ? '+' : '-'}
+							</button>
 						</div>
 					</div>
 				))}

@@ -8,6 +8,7 @@ function App() {
 	const [input, setInput] = useState('')
 	const [output, setOutput] = useState([])
 	const [data, setData] = useState([])
+  const [expand, setExpand] = useState(true)
 
 	useEffect(() => {
 		async function getContent() {
@@ -50,7 +51,7 @@ function App() {
 			<div>
 				{output.map((item) => (
 					<div className='studentCard' key={item.firstName + item.lastName}>
-						<img src={item.pic} />
+						<img alt='' src={item.pic} />
 						<div className='studentInfo'>
 							<div
 								className='studentName'
@@ -67,6 +68,26 @@ function App() {
 										item.grades.length}{' '}
 									%
 								</div>
+								<div>
+									<ul>
+										{!expand
+											? item.grades.map((grade, index) => (
+													<li key={grade}>
+														{'Test ' +
+															(item.grades.indexOf(item) + 1).toString() +
+															': ' +
+															item.toString()}
+														%
+													</li>
+											  ))
+											: ''}
+									</ul>
+								</div>
+								<button
+									className='toggleButton'
+									onClick={() => setExpand(!expand)}>
+									{expand ? '+' : '-'}
+								</button>
 							</div>
 						</div>
 					</div>
